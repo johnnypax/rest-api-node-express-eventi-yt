@@ -1,0 +1,21 @@
+{
+  "name": "rest-api-node-express-eventi-yt",
+  "version": "1.0.0",
+  "description": "Questa API consente di gestire un semplice sistema di eventi, permettendo di creare, recuperare, aggiornare e cancellare eventi.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "mocha 'test/**/*.test.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "chai-http": "^5.1.1",
+    "mocha": "^10.8.2",
+    "nodemon": "^3.1.7"
+  }
+}
