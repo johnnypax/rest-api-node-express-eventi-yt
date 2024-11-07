@@ -103,3 +103,5 @@ app.get("/events/:cod/:tipo", (req, res) => {
             break;
     }
 });
+
+module.exports = app;   //Serve per Mocha
