@@ -1,8 +1,10 @@
 // Importa i pacchetti
 const express = require("express");
+const cors = require("cors");
 
 // Avvia l'applicazione
 const app = express();
+app.use(cors()); // Configura CORS con allow all
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -75,6 +77,25 @@ app.delete("/events/:cod", (req, res) => {
     } else {
         res.status(404).json({ status: "ERROR", data: "Oggetto non trovato" });
     }
+});
+
+// Modifica i campi di un evento
+app.patch("/events/:cod", (req, res) => {
+    const evento = eventi.find(e => e.codice === req.params.cod);
+
+    if (!evento) {
+        return res.status(404).json({ status: "ERROR", data: "Oggetto non trovato" });
+    }
+
+    const { nome, descrizione, data, location, partecipanti } = req.body;
+
+    if (nome !== undefined) evento.nome = nome;
+    if (descrizione !== undefined) evento.descrizione = descrizione;
+    if (data !== undefined) evento.data = data;
+    if (location !== undefined) evento.location = location;
+    if (partecipanti !== undefined) evento.partecipanti = partecipanti;
+
+    res.json({ status: "SUCCESS", data: evento });
 });
 
 // Aggiorna i partecipanti di un evento

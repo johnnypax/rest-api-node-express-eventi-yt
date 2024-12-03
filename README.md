@@ -158,6 +158,25 @@ Se il comando è errato o ci sono partecipanti insufficienti:
 }
 ```
 
+### 6. Modifica i campi di un evento
+**PATCH** `/events/:cod`
+
+Descrizione: Questo endpoint consente di aggiornare uno o più campi di un evento esistente, identificato dal suo codice.
+
+**Parametri**:
+- `:cod`: codice dell'evento
+- **Body (JSON)**: Puoi includere uno o più dei seguenti campi nel corpo della richiesta:
+
+```json
+{
+    "nome": "nuovo_nome_evento",
+    "descrizione": "nuova_descrizione_evento",
+    "data": "nuova_data_evento",
+    "location": "nuova_location_evento",
+    "partecipanti": nuovo_numero_partecipanti
+}
+```
+
 ## Note
 
 - **Incremento e decremento** dei partecipanti vengono gestiti tramite gli endpoint `/events/:cod/INC` e `/events/:cod/DEC`.
